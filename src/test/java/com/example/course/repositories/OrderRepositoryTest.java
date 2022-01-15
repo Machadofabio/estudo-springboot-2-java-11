@@ -2,6 +2,7 @@ package com.example.course.repositories;
 
 import com.example.course.entities.Order;
 import com.example.course.entities.User;
+import com.example.course.entities.enums.OrderStatus;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,7 @@ class OrderRepositoryTest {
     private Order createOrder(){
         User user =  new User(null, "usuario1", "usuario1@gmail.com", "1133332222", "senhausuario");
 
-        return new Order(null, Instant.parse("2022-01-14T22:00:00Z"), user);
+        return new Order(null, Instant.parse("2022-01-14T22:00:00Z"), OrderStatus.PAID, user);
     }
 
 

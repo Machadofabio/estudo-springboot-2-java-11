@@ -2,7 +2,6 @@ package com.example.course.repositories;
 
 import com.example.course.entities.Order;
 import com.example.course.entities.User;
-import com.example.course.exceptions.BadRequestException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

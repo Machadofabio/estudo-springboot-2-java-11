@@ -2,12 +2,14 @@ package com.example.course.services;
 
 
 import com.example.course.entities.Order;
+import com.example.course.exceptions.BadRequestException;
 import com.example.course.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -20,7 +22,6 @@ public class OrderService {
     }
 
     public Order findById(Long id){
-        Optional<Order> user = repository.findById(id);
-        return user.get();
+        return repository.findById(id).orElseThrow(() -> new BadRequestException("Order not found"));
     }
 }

@@ -2,12 +2,14 @@ package com.example.course.services;
 
 
 import com.example.course.entities.User;
+import com.example.course.exceptions.BadRequestException;
 import com.example.course.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -20,7 +22,7 @@ public class UserService {
     }
 
     public User findById(Long id){
-        Optional<User> user = repository.findById(id);
-        return user.get();
+        return repository.findById(id)
+                .orElseThrow(() -> new BadRequestException("User not found"));
     }
 }

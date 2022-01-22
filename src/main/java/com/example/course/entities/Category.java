@@ -18,7 +18,7 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
-    //Utilizado Set e não List porque o Set vai permitir que um produto tenha apenas UMA categoria
+    //Utilizado Set e não List porque o Set vai permitir que uma categoria tenha apenas UM produto
 
     @JsonIgnore
     @ManyToMany(mappedBy = "categories")
